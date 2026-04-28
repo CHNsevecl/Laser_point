@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 int main(){
-    setenv("DISPLAY",":0",1);
+    // setenv("DISPLAY",":0",1);
 
     //================初始化摄像头================
     std::string pipeline = 
@@ -114,10 +114,6 @@ int main(){
             send_direction_to_MCU(uart,cv::Point(dx,dy));
         }
      
-        
-        cv::imshow("bgr",frame_BGR);
-        cv::imshow("blue",mask_blue);
-        cv::imshow("red",mask_red);
         
         if (cv::waitKey(1) == 27){
             break;
