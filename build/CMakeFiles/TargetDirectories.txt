@@ -1,0 +1,3 @@
+/home/sevecl/Desktop/C/Project/激光打靶/build/CMakeFiles/hit.dir
+/home/sevecl/Desktop/C/Project/激光打靶/build/CMakeFiles/edit_cache.dir
+/home/sevecl/Desktop/C/Project/激光打靶/build/CMakeFiles/rebuild_cache.dir
