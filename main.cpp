@@ -76,7 +76,7 @@ int main()
     pid_x.setIntegralLimits(-1.0,0.0);
     pid_x.setOutputLimits(-255,255);
     PIDController pid_y;
-    pid_y.setGains(0.15,0.0001,0.01);
+    pid_y.setGains(0.100,0.0001,0.00001);
     pid_y.setIntegralLimits(-1.0,1.0);
     pid_y.setOutputLimits(-255,255);
 
