@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hit.dir/build.make CMakeFiles/hit.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+rect.o: rect.cpp.o
+.PHONY : rect.o
+
+# target to build an object file
+rect.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hit.dir/build.make CMakeFiles/hit.dir/rect.cpp.o
+.PHONY : rect.cpp.o
+
+rect.i: rect.cpp.i
+.PHONY : rect.i
+
+# target to preprocess a source file
+rect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hit.dir/build.make CMakeFiles/hit.dir/rect.cpp.i
+.PHONY : rect.cpp.i
+
+rect.s: rect.cpp.s
+.PHONY : rect.s
+
+# target to generate assembly for a file
+rect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hit.dir/build.make CMakeFiles/hit.dir/rect.cpp.s
+.PHONY : rect.cpp.s
+
 uart.o: uart.cpp.o
 .PHONY : uart.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... rect.o"
+	@echo "... rect.i"
+	@echo "... rect.s"
 	@echo "... uart.o"
 	@echo "... uart.i"
 	@echo "... uart.s"

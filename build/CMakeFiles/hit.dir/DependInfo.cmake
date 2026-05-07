@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/sevecl/Desktop/C/Project/激光打靶/main.cpp" "CMakeFiles/hit.dir/main.cpp.o" "gcc" "CMakeFiles/hit.dir/main.cpp.o.d"
+  "/home/sevecl/Desktop/C/Project/激光打靶/rect.cpp" "CMakeFiles/hit.dir/rect.cpp.o" "gcc" "CMakeFiles/hit.dir/rect.cpp.o.d"
   "/home/sevecl/Desktop/C/Project/激光打靶/uart.cpp" "CMakeFiles/hit.dir/uart.cpp.o" "gcc" "CMakeFiles/hit.dir/uart.cpp.o.d"
   "" "hit" "gcc" "CMakeFiles/hit.dir/link.d"
   )

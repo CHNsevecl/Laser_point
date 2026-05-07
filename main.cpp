@@ -2,9 +2,10 @@
 #include <iostream>
 #include "uart.hpp"
 #include <cstdlib>
+#include "rect.hpp"
 
 int main(){
-    // setenv("DISPLAY",":0",1);
+    setenv("DISPLAY",":0",1);
 
     //================初始化摄像头================
     std::string pipeline = 
@@ -49,8 +50,11 @@ int main(){
         //===============二值化================
         cv::cvtColor(frame_BGR, frame_BGR, cv::COLOR_YUV2BGR_NV12);
         cv::cvtColor(frame_BGR, frame_HSV, cv::COLOR_BGR2HSV);
+        cv:: RotatedRect rect = Find_Rect(frame_BGR);
+        cv::Mat mask_roi = createRotatedRectMask(width, height, rect);
 
 
+        //===================================
 
         cv::Mat mask1, mask2, mask_red;
         cv::inRange(frame_HSV, cv::Scalar(0, 20, 200), cv::Scalar(20, 255, 255), mask1);
@@ -65,8 +69,9 @@ int main(){
         cv::Mat kernel_blue = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
         cv::morphologyEx(mask_red, mask_red, cv::MORPH_CLOSE, kernel_red);
         cv::morphologyEx(mask_blue, mask_blue, cv::MORPH_CLOSE, kernel_blue);
-        //====================================
-
+        // ======================== 应用旋转矩形掩码 ========================
+        cv::bitwise_and(mask_red, mask_roi, mask_red);
+        cv::bitwise_and(mask_blue, mask_roi, mask_blue);
 
         std::vector<cv::Point> all_point;
         all_point.reserve(2);
@@ -105,20 +110,31 @@ int main(){
             int dx = all_point[1].x - all_point[0].x;
             int dy = all_point[1].y - all_point[0].y;
 
-            if(abs(dx) <= 5){
+            if(abs(dx) <= 3){
                 dx = 0;
             }
-            if(abs(dy) <= 5){
+            if(abs(dy) <= 3){
                 dy = 0;
             }
             send_direction_to_MCU(uart,cv::Point(dx,dy));
         }
      
         
+
+        //=====================画K线=====================
+        cv::Point2f vertices[4];
+        rect.points(vertices);
+        for (int i = 0; i < 4; i++) {
+                line(frame_BGR, vertices[i], vertices[(i+1)%4], cv::Scalar(0, 255, 0), 3);
+            }
+        //===============================================
+        cv::imshow("Line",frame_BGR);
         if (cv::waitKey(1) == 27){
             break;
         }
     }
+
+
     uart.close_port();
     return 0;
 }

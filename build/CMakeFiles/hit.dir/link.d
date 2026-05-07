@@ -4,6 +4,7 @@ hit: \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o \
   CMakeFiles/hit.dir/main.cpp.o \
   CMakeFiles/hit.dir/uart.cpp.o \
+  CMakeFiles/hit.dir/rect.cpp.o \
   /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0 \
   /usr/lib/aarch64-linux-gnu/libopencv_alphamat.so.4.10.0 \
   /usr/lib/aarch64-linux-gnu/libopencv_aruco.so.4.10.0 \
@@ -380,6 +381,8 @@ hit: \
 CMakeFiles/hit.dir/main.cpp.o:
 
 CMakeFiles/hit.dir/uart.cpp.o:
+
+CMakeFiles/hit.dir/rect.cpp.o:
 
 /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0:
 
